@@ -1,6 +1,6 @@
 Package: IDEAFilter
 Type: Package
-Version: 0.1.2
+Version: 0.2.0
 Title: Agnostic, Idiomatic Data Filter Module for Shiny
 Description: When added to an existing shiny app, users may subset any
     developer-chosen R data.frame on the fly. That is, users are empowered to
@@ -20,32 +20,39 @@ Authors@R: c(
         role = c("aut", "cre"),
         comment = c(ORCID = "0000-0002-0123-0970")),
     person(
+        given = "Jeff", family = "Thompson", 
+        email = "jeff.thompson51317@gmail.com", role = "aut"),
+    person(
         given = "Doug", family = "Kelkhoff", 
-        email = "doug.kelkhoff@gmail.com", role = "aut"),
+        email = "doug.kelkhoff@gmail.com", role = c("ctb", "cph"),
+        comment = "Author of shinyDataFilter"),
     person(
         given = "Maya", family = "Gans", 
         email = "maya.gans@biogen.com", role = "ctb"),
-    person(
-        given = "Jeff", family = "Thompson", 
-        email = "jeff.thompson51317@gmail.com", role = "ctb"),
+    person(family = "SortableJS contributors", role = "ctb",
+        comment = "SortableJS library"),
     person(given = "Biogen", role = "cph"))
-License: AGPL-3
-URL: https://biogen-inc.github.io/IDEAFilter/
+License: MIT + file LICENSE
+URL: https://biogen-inc.github.io/IDEAFilter/,
+        https://github.com/Biogen-Inc/IDEAFilter
 BugReports: https://github.com/Biogen-Inc/IDEAFilter/issues
 Encoding: UTF-8
-RoxygenNote: 7.1.2
-Imports: shiny, ggplot2, pillar (>= 1.5.0), crayon, RColorBrewer,
-        shinyTime, purrr
-Suggests: shinytest, shinytest2, testthat, knitr, rmarkdown, spelling,
-        dplyr
+RoxygenNote: 7.3.1
+Imports: crayon, ggplot2, pillar (>= 1.5.0), purrr, RColorBrewer,
+        shiny, shinyTime
+Suggests: dplyr, knitr, rmarkdown, shinytest, shinytest2, spelling,
+        testthat
 Language: en-US
+VignetteBuilder: knitr
+Depends: R (>= 2.10)
 NeedsCompilation: no
-Packaged: 2022-06-27 15:53:49 UTC; aclark5
+Packaged: 2024-04-15 14:58:41 UTC; aclark02
 Author: Aaron Clark [aut, cre] (<https://orcid.org/0000-0002-0123-0970>),
-  Doug Kelkhoff [aut],
+  Jeff Thompson [aut],
+  Doug Kelkhoff [ctb, cph] (Author of shinyDataFilter),
   Maya Gans [ctb],
-  Jeff Thompson [ctb],
+  SortableJS contributors [ctb] (SortableJS library),
   Biogen [cph]
 Maintainer: Aaron Clark <clark.aaronchris@gmail.com>
 Repository: CRAN
-Date/Publication: 2022-06-28 15:50:08 UTC
+Date/Publication: 2024-04-15 15:30:02 UTC

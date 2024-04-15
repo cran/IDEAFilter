@@ -3,6 +3,14 @@
 
 Agnostic, Idiomatic Data Filter Module for Shiny.
 
+<center>
+<a href="https://rinpharma.shinyapps.io/IDEAfilter/">
+<img src="man/figures/demo_ideafilter_button.png" alt="Demo example app that leverages the IDEAFilter shiny module" width="25%">
+</a>
+</center>
+
+<br>
+
 ![](man/figures/starwars_example_21s.gif)<!-- -->
 
 ## Overview
@@ -39,24 +47,50 @@ data.
 ### Installation
 
 ``` r
-# Install from github using devtools
-# install.packages("devtools") # uncomment & run if needed
+# Install from CRAN
+install.packages("IDEAFilter")
+
+# Or install latest dev version from github using devtools
 devtools::install_github("Biogen-Inc/IDEAFilter")
+```
+
+### Usage
+
+After installation, you now have access to the`IDEAFilter` shiny module.
+On the UI side, you need only include the following line of code to
+place the filtering widget somewhere in your app:
+
+``` r
+IDEAFilter_ui(id = "data_filter")
+```
+
+The server side logic needs to call the `IDEAFilter` module, match the
+input ID from the UI, and provide a data source. The returned reactive
+data.frame (called “filtered_data”) may used for downstream processes
+regardless on if the user chooses to apply filters or not.
+
+``` r
+filtered_data <- # name the returned reactive data frame
+   IDEAFilter(
+     "data_filter",     # give the filter a name(space)
+     data = starwars,  # feed it raw data
+     verbose = FALSE
+    )
 ```
 
 ### Example App
 
-After installation, run either of these sample apps to build filters
-with `IDEAFilter`:
+Copy & paste the code below into a live R session to see the inner
+workings of the Star Wars app referenced above. Or click the button
+below to test drive the example app now!
 
-``` r
-library(shiny)
-shinyAppFile(system.file("examples", "starwars_app", "app.R", package = "IDEAFilter"))
-shinyAppFile(system.file("examples", "iris_app", "app.R", package = "IDEAFilter"))
-```
+<center>
+<a href="https://rinpharma.shinyapps.io/IDEAfilter/">
+<img src="man/figures/demo_ideafilter_button.png" alt="Demo example app that leverages the IDEAFilter shiny module" width="25%">
+</a>
+</center>
 
-Or, copy & paste the code below into a live R session to see the inner
-workings of the Star Wars app referenced above:
+<br>
 
 ``` r
 library(shiny)
@@ -78,23 +112,19 @@ attr(starwars2$mass, "label")     <- "mass of character in kilograms"
 attr(starwars2$is_droid, "label") <- "whether character is a droid"
 
 ui <- fluidPage(
- titlePanel("IDEAFilter Example: STARWARS"),
+ titlePanel("{IDEAFilter} Example: Star Wars App"),
  fluidRow(
    column(8, 
      dataTableOutput("data_summary"),
+     h4("Generated Code"),
      verbatimTextOutput("data_filter_code")),
-   column(4, shiny_data_filter_ui("data_filter"))))
+   column(4, IDEAFilter_ui("data_filter"))))
 
 server <- function(input, output, session) {
   
   
- filtered_data <- # name the retunred reactive data frame
-   callModule(
-     shiny_data_filter, # call the module
-     "data_filter",     # give the filter a name(space)
-     data = starwars2,  # feed it raw data
-     verbose = FALSE
-    )
+ filtered_data <- # name the returned reactive data frame
+   IDEAFilter("data_filter", data = starwars2,verbose = FALSE)
  
  # extract & display the "code" attribute to see dplyr::filter()
  # statements performed

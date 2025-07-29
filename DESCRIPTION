@@ -1,6 +1,6 @@
 Package: IDEAFilter
 Type: Package
-Version: 0.2.0
+Version: 0.2.1
 Title: Agnostic, Idiomatic Data Filter Module for Shiny
 Description: When added to an existing shiny app, users may subset any
     developer-chosen R data.frame on the fly. That is, users are empowered to
@@ -37,7 +37,7 @@ URL: https://biogen-inc.github.io/IDEAFilter/,
         https://github.com/Biogen-Inc/IDEAFilter
 BugReports: https://github.com/Biogen-Inc/IDEAFilter/issues
 Encoding: UTF-8
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Imports: crayon, ggplot2, pillar (>= 1.5.0), purrr, RColorBrewer,
         shiny, shinyTime
 Suggests: dplyr, knitr, rmarkdown, shinytest, shinytest2, spelling,
@@ -46,8 +46,8 @@ Language: en-US
 VignetteBuilder: knitr
 Depends: R (>= 2.10)
 NeedsCompilation: no
-Packaged: 2024-04-15 14:58:41 UTC; aclark02
-Author: Aaron Clark [aut, cre] (<https://orcid.org/0000-0002-0123-0970>),
+Packaged: 2025-07-29 18:12:38 UTC; aclark02
+Author: Aaron Clark [aut, cre] (ORCID: <https://orcid.org/0000-0002-0123-0970>),
   Jeff Thompson [aut],
   Doug Kelkhoff [ctb, cph] (Author of shinyDataFilter),
   Maya Gans [ctb],
@@ -55,4 +55,4 @@ Author: Aaron Clark [aut, cre] (<https://orcid.org/0000-0002-0123-0970>),
   Biogen [cph]
 Maintainer: Aaron Clark <clark.aaronchris@gmail.com>
 Repository: CRAN
-Date/Publication: 2024-04-15 15:30:02 UTC
+Date/Publication: 2025-07-29 18:40:02 UTC
